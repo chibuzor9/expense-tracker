@@ -5,7 +5,7 @@ import ExpenseForm from './ExpenseForm';
 function NewExpense(props) {
 	const [isEditing, setIsEditing] = useState(false);
 
-	const saveExpenseDataHandler = (enteredExpenseData) => {
+	const onSaveExpenseData = (enteredExpenseData) => {
 		const expenseData = {
 			...enteredExpenseData,
 			id: Math.random().toString(),
@@ -33,7 +33,7 @@ function NewExpense(props) {
 			)}
 			{isEditing && (
 				<ExpenseForm
-					onExpenseSubmit={saveExpenseDataHandler}
+					onExpenseSubmit={onSaveExpenseData}
 					onCancel={stopEditingHandler}
 				/>
 			)}
