@@ -1,10 +1,22 @@
 import './NewExpense.css';
 import ExpenseForm from './ExpenseForm';
 
-function NewExpense() {
+function NewExpense(props) {
+	const saveExpenseDataHandler = (enteredExpenseData) => {
+		const expenseData = {
+			...enteredExpenseData,
+			id: Math.random().toString(),
+		};
+
+		// eslint-disable-next-line react/prop-types
+		props.onUpdateExpenses(expenseData)
+	};
+
 	return (
 		<div className="new-expense">
-			<ExpenseForm />
+			<ExpenseForm
+				onExpenseSubmit={saveExpenseDataHandler}
+			/>
 		</div>
 	);
 }
