@@ -31,16 +31,6 @@ const expenses = [
 ];
 
 
-// eslint-disable-next-line no-unused-vars
-const expenses_ = [
-	{
-		id: 'e1',
-		title: 'Expense <-- Goes here!',
-		amount: 0.00,
-		date: new Date()
-	}
-]
-
 function App() {
 	const [expensesRender, setExpenses] = useState(expenses);
 
