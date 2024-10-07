@@ -1,4 +1,3 @@
-import './App.css';
 import { useState } from 'react';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
@@ -30,7 +29,6 @@ const expenses = [
 	},
 ];
 
-
 function App() {
 	const [expensesRender, setExpenses] = useState(expenses);
 
@@ -40,10 +38,21 @@ function App() {
 		});
 	};
 
+	
+	const deleteExpenseHandler = (expenseId) => {
+		setExpenses((prevExpenses) => {
+			return prevExpenses.filter(expense => expense.id !== expenseId);
+		});
+	};
+
+
 	return (
 		<div>
 			<NewExpense onUpdateExpenses={updateExpenses} />
-			<Expenses items={expensesRender} />
+			<Expenses
+				items={expensesRender}
+				delete={deleteExpenseHandler}
+			/>
 		</div>
 	);
 }

@@ -2,8 +2,13 @@
 import './ExpenseItem.css';
 import ExpenseDate from './ExpenseDate';
 import Card from '../UI/Card';
+import DisableButton from '../UI/DisableButton'
 
 function ExpenseItem(props) {
+	const deleteHandler = () => {
+		props.delete(props.id) 
+	}
+
 	return (
 		<li>
 			<Card className="expense-item">
@@ -14,6 +19,7 @@ function ExpenseItem(props) {
 						$ {props.amount}
 					</div>
 				</div>
+				<DisableButton delete={deleteHandler}/>
 			</Card>
 		</li>
 	);

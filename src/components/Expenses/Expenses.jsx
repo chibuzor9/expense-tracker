@@ -19,6 +19,10 @@ function Expenses(props) {
 		);
 	});
 
+	const deleteHandler = (id) => {
+		props.delete(id)
+	}
+
 	return (
 		<div>
 			<Card className="expenses">
@@ -26,8 +30,11 @@ function Expenses(props) {
 					selected={filteredYear}
 					onChangeFilter={filterChangeHandler}
 				/>
-				<ExpensesChart expenses={filteredExpenses}/>
-				<ExpensesList expenses={filteredExpenses} />
+				<ExpensesChart expenses={filteredExpenses} />
+				<ExpensesList
+					expenses={filteredExpenses}
+					delete={deleteHandler}
+				/>
 			</Card>
 		</div>
 	);
